@@ -27,7 +27,7 @@
       "businessName": "GreenCart",
       "email": "greencart@gmail.com",
       "rating": 3.2,
-      "status": "pending",
+      "status": "active",
       "totalOrders": 60,
       "totalRevenue": 25000,
       "avgDeliveryTime": 50,
@@ -648,17 +648,6 @@
       "totalRevenue": 99000,
       "avgDeliveryTime": 30,
       "createdAt": "2023-12-23"
-    },
-    {
-      "id": "v60",
-      "businessName": "MaxiGrocers",
-      "email": "maxigrocers@gmail.com",
-      "rating": 4.7,
-      "status": "active",
-      "totalOrders": 370,
-      "totalRevenue": 195000,
-      "avgDeliveryTime": 22,
-      "createdAt": "2023-08-30"
     },
     {
       "id": "v61",

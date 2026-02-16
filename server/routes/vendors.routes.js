@@ -1,8 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-
-
-
 const express = require("express");
 const router = express.Router();
 const delay = require("../utils/delay");
@@ -22,6 +19,10 @@ router.get("/", async (req, res) => {
 
   res.json({ vendor: data.vendors });
 });
+
+const saveData = () => {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+};
 
 
 // BULK UPDATE STATUS - Must come before /:id routes
@@ -49,10 +50,7 @@ router.patch("/bulk/status", async (req, res) => {
   });
 
   // ✅ SAVE BACK TO FILE
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(data, null, 2)
-  );
+ saveData();
 
   res.json({ vendors: updatedVendors });
 });
@@ -71,10 +69,7 @@ router.delete("/bulk", async (req, res) => {
   data.vendors = data.vendors.filter(v => !ids.includes(v.id));
 
   // ✅ SAVE BACK TO FILE
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(data, null, 2)
-  );
+  saveData();
 
   res.json({ success: true });
 });
@@ -106,10 +101,7 @@ router.patch("/:id/status", async (req, res) => {
   vendor.status = status;
 
   // ✅ SAVE BACK TO FILE
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(data, null, 2)
-  );
+ saveData();
 
   res.json({ vendor });
 });
